@@ -1,6 +1,6 @@
-package org.deo.dev.LibrarySystem.models;
+package org.deodev.LibrarySystem.models;
 
-import org.deo.dev.LibrarySystem.enums.Role;
+import org.deodev.LibrarySystem.enums.Role;
 
 public class JuniorStudent extends Member{
     public JuniorStudent(String name) {

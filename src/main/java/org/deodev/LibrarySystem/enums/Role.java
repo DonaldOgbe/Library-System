@@ -1,4 +1,4 @@
-package org.deo.dev.LibrarySystem.enums;
+package org.deodev.LibrarySystem.enums;
 
 public enum Role {
     TEACHER(1),

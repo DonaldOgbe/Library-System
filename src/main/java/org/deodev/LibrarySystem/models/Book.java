@@ -1,4 +1,4 @@
-package org.deo.dev.LibrarySystem.models;
+package org.deodev.LibrarySystem.models;
 
 public class Book {
     private String title;

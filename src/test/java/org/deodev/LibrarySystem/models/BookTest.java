@@ -1,4 +1,4 @@
-package org.deo.dev.LibrarySystem.models;
+package org.deodev.LibrarySystem.models;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
