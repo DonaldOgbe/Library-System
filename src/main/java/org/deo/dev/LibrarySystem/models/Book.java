@@ -1,4 +1,4 @@
-package org.deo.dev;
+package org.deo.dev.LibrarySystem.models;
 
 public class Book {
     private String title;
@@ -21,5 +21,13 @@ public class Book {
         copies = num;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        Book book = (Book) obj;
+        return book.getBookTitle().equals(this.title)  && book.getNumberOfCopies() == this.copies;
+    }
 
 }

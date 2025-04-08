@@ -1,9 +1,12 @@
-package org.deo.dev;
+package org.deo.dev.LibrarySystem.models;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -37,6 +40,22 @@ class BookTest {
         int result = testBook.getNumberOfCopies();
         assertEquals(2, result);
     }
+
+    static Stream<Arguments> getObjectForTesting() {
+        return Stream.of(
+                Arguments.of(null, false),
+                Arguments.of(new Library(), false),
+                Arguments.of(new Book("Dream Count", 3), true)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("getObjectForTesting")
+    void testEqualsOverride(Object obj, boolean expected) {
+        boolean result = testBook.equals(obj);
+        assertEquals(expected, result);
+    }
+
 
 
 }

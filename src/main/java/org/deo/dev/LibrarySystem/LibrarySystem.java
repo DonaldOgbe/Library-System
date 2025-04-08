@@ -1,6 +1,6 @@
-package org.deo.dev;
+package org.deo.dev.LibrarySystem;
 
-public class Main {
+public class LibrarySystem {
     public static void main(String[] args) {
         System.out.println("Hello, World!");
     }
