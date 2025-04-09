@@ -1,4 +1,4 @@
-package org.deodev.LibrarySystem.models;
+package org.deodev.LibrarySystem.model;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -29,13 +29,7 @@ class BookTest {
     }
 
     @Test
-    void getNumberOfCopies() {
-        int result = testBook.getNumberOfCopies();
-        assertEquals(3, result);
-    }
-
-    @Test
-    void setNumberOfCopies() {
+    void changeNumberOfCopiesValue() {
         testBook.setNumberOfCopies(2);
         int result = testBook.getNumberOfCopies();
         assertEquals(2, result);

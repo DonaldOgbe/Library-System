@@ -1,4 +1,4 @@
-package org.deodev.LibrarySystem.models;
+package org.deodev.LibrarySystem.model;
 
 import java.util.HashMap;
 import java.util.Map;

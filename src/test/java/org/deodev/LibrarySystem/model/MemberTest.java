@@ -1,5 +1,6 @@
-package org.deodev.LibrarySystem.models;
+package org.deodev.LibrarySystem.model;
 
+import org.deodev.LibrarySystem.enums.Role;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +16,7 @@ class MemberTest {
     @BeforeEach
     void setup() {
         name = "Amanda";
-        testMember = new Member(name, null);
+        testMember = new Member(name, Role.TEACHER);
     }
 
     @Test
@@ -27,7 +28,7 @@ class MemberTest {
 
     @Test
     void getEnumRole() {
-        int result = testMember.getRole();
-        assertEquals(1, result);
+        Role result = testMember.getRole();
+        assertEquals(Role.TEACHER, result);
     }
 }

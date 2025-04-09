@@ -1,8 +1,9 @@
-package org.deodev.LibrarySystem.models;
+package org.deodev.LibrarySystem.model;
 
 import org.deodev.LibrarySystem.enums.Role;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 
 public class Member {
@@ -11,6 +12,7 @@ public class Member {
     private int id;
     private Role role;
     private LocalDateTime lastBookRequestTime;
+    private final ArrayList<String> borrowedBooks = new ArrayList<>();
 
     public Member(String name, Role role) {
         this.name = name;
@@ -25,7 +27,7 @@ public class Member {
         return LocalDateTime.of(2024, 4, 5, 10, 30);
     }
 
-    public int getRole() {
-        return 1;
+    public Role getRole() {
+        return role;
     }
 }
