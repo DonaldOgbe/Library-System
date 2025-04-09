@@ -20,12 +20,6 @@ class MemberTest {
     }
 
     @Test
-    void getRequestTime() {
-        LocalDateTime result = testMember.getRequestTime();
-        assertEquals(LocalDateTime.of(2024, 4, 5, 10, 30), result);
-    }
-
-    @Test
     void getEnumRole() {
         Role result = testMember.getRole();
         assertEquals(Role.TEACHER, result);

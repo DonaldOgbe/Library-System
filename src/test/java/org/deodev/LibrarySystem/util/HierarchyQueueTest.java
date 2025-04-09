@@ -33,7 +33,7 @@ class HierarchyQueueTest {
         testHierarchyQueue.addToQueue(student);
         testHierarchyQueue.addToQueue(teacher);
 
-        Member result = testHierarchyQueue.getHighestPriority();
+        Member result = testHierarchyQueue.getHighestInQueue();
         assertTrue(result.equals(teacher));
     }
 

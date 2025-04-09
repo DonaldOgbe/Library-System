@@ -42,4 +42,8 @@ public class Member {
     public ArrayList<String> getBorrowedBooks() {
         return borrowedBooks;
     }
+
+    public String getName() {
+        return name;
+    }
 }

@@ -21,7 +21,7 @@ public class HierarchyQueue {
         return priorityQueue.peek();
     }
 
-    public Member getHighestPriority() {
+    public Member getHighestInQueue() {
         return priorityQueue.poll();
     }
 
