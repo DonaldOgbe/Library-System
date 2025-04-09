@@ -23,12 +23,25 @@ class MemberTest {
     void getRequestTime() {
         LocalDateTime result = testMember.getRequestTime();
         assertEquals(LocalDateTime.of(2024, 4, 5, 10, 30), result);
-
     }
 
     @Test
     void getEnumRole() {
         Role result = testMember.getRole();
         assertEquals(Role.TEACHER, result);
+    }
+
+    @Test
+    void changeBookRequestTime() {
+        testMember.setLastBookRequestTime();
+        boolean result = testMember.getRequestTime().getClass().equals(LocalDateTime.class);
+        assertTrue(result);
+    }
+
+    @Test
+    void addBorrowedBookToList() {
+        testMember.borrowBook("Dream Count");
+        boolean result = testMember.getBorrowedBooks().contains("Dream Count");
+        assertTrue(result);
     }
 }

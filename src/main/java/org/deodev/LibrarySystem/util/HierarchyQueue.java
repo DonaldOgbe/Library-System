@@ -20,4 +20,12 @@ public class HierarchyQueue {
     public Member peekNext() {
         return priorityQueue.peek();
     }
+
+    public Member getHighestPriority() {
+        return priorityQueue.poll();
+    }
+
+    public int size() {
+        return priorityQueue.size();
+    }
 }

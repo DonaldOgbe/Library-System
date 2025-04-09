@@ -24,10 +24,22 @@ public class Member {
     // !!! Update methods
 
     public LocalDateTime getRequestTime() {
-        return LocalDateTime.of(2024, 4, 5, 10, 30);
+        return lastBookRequestTime;
     }
 
     public Role getRole() {
         return role;
+    }
+
+    public void setLastBookRequestTime() {
+        lastBookRequestTime = LocalDateTime.now();
+    }
+
+    public void borrowBook(String bookTitle) {
+        borrowedBooks.add(bookTitle);
+    }
+
+    public ArrayList<String> getBorrowedBooks() {
+        return borrowedBooks;
     }
 }
