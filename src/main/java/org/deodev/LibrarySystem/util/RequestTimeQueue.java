@@ -5,10 +5,9 @@ import org.deodev.LibrarySystem.model.Member;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class HierarchyQueue extends BaseQueue {
-    private Comparator<Member> memberComparator = Comparator
-            .comparing((Member m) -> m.getRole().getPriority())
-            .thenComparing((Member::getRequestTime));
+public class RequestTimeQueue extends BaseQueue {
+    private final Comparator<Member> memberComparator = Comparator
+            .comparing(Member::getRequestTime);
 
     private PriorityQueue<Member> priorityQueue = new PriorityQueue<>(memberComparator
     );

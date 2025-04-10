@@ -5,17 +5,16 @@ import org.deodev.LibrarySystem.model.Member;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
-class HierarchyQueueTest {
+class RequestTimeQueueTest {
     Member testMember;
     BaseQueue testQueue;
 
     @BeforeEach
     void setup() {
         testMember = new Member("Teacher", Role.TEACHER);
-        testQueue = new HierarchyQueue();
+        testQueue = new RequestTimeQueue();
     }
 
     @Test
@@ -38,11 +37,11 @@ class HierarchyQueueTest {
         Member teacher = new Member("Teacher", Role.TEACHER);
         Member student = new Member("Student", Role.SENIOR_STUDENT);
 
-        student.setLastBookRequestTime();
         teacher.setLastBookRequestTime();
+        student.setLastBookRequestTime();
 
-        testQueue.addToQueue(student);
         testQueue.addToQueue(teacher);
+        testQueue.addToQueue(student);
 
         Member result = testQueue.getHighestInQueue();
         assertEquals("Teacher", result.getName());
