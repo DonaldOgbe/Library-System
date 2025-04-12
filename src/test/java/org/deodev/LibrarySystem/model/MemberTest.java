@@ -15,7 +15,7 @@ class MemberTest {
 
     @BeforeEach
     void setup() {
-        name = "Amanda";
+        name = "Teacher";
         testMember = new Member(name, Role.TEACHER);
     }
 
@@ -28,7 +28,7 @@ class MemberTest {
     @Test
     void changeBookRequestTime() {
         testMember.setLastBookRequestTime();
-        boolean result = testMember.getRequestTime().getClass().equals(LocalDateTime.class);
+        boolean result = testMember.getRequestTime() != null;
         assertTrue(result);
     }
 
@@ -37,5 +37,11 @@ class MemberTest {
         testMember.borrowBook("Dream Count");
         boolean result = testMember.getBorrowedBooks().contains("Dream Count");
         assertTrue(result);
+    }
+
+    @Test
+    void getName() {
+        String result = testMember.getName();
+        assertEquals("Teacher", result);
     }
 }

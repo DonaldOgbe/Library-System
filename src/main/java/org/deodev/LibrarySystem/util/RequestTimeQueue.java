@@ -6,11 +6,10 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class RequestTimeQueue extends BaseQueue {
-    private final Comparator<Member> memberComparator = Comparator
-            .comparing(Member::getRequestTime);
-
-    private PriorityQueue<Member> priorityQueue = new PriorityQueue<>(memberComparator
-    );
+    public RequestTimeQueue() {
+        super(Comparator
+                .comparing(Member::getRequestTime));
+    }
 
     @Override
     public void addToQueue(Member member) {

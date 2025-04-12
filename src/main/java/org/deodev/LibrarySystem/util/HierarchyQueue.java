@@ -6,12 +6,12 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class HierarchyQueue extends BaseQueue {
-    private Comparator<Member> memberComparator = Comparator
-            .comparing((Member m) -> m.getRole().getPriority())
-            .thenComparing((Member::getRequestTime));
 
-    private PriorityQueue<Member> priorityQueue = new PriorityQueue<>(memberComparator
-    );
+    public HierarchyQueue() {
+        super(Comparator
+                .comparing((Member m) -> m.getRole().getPriority())
+                .thenComparing((Member::getRequestTime)));
+    }
 
     @Override
     public void addToQueue(Member member) {
