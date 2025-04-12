@@ -1,5 +1,6 @@
-package org.deodev.LibrarySystem.model;
+package org.deodev.LibrarySystem.repository;
 
+import org.deodev.LibrarySystem.model.Book;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

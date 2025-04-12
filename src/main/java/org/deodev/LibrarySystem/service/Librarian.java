@@ -1,7 +1,7 @@
 package org.deodev.LibrarySystem.service;
 
 import org.deodev.LibrarySystem.model.Book;
-import org.deodev.LibrarySystem.model.Library;
+import org.deodev.LibrarySystem.repository.Library;
 import org.deodev.LibrarySystem.model.Member;
 import org.deodev.LibrarySystem.util.BaseQueue;
 

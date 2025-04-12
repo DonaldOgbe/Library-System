@@ -2,6 +2,7 @@ package org.deodev.LibrarySystem.service;
 
 import org.deodev.LibrarySystem.enums.Role;
 import org.deodev.LibrarySystem.model.*;
+import org.deodev.LibrarySystem.repository.Library;
 import org.deodev.LibrarySystem.util.BaseQueue;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
