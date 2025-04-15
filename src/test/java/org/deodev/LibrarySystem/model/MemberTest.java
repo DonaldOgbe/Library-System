@@ -1,5 +1,6 @@
 package org.deodev.LibrarySystem.model;
 
+import jdk.jfr.Description;
 import org.deodev.LibrarySystem.enums.Role;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -37,6 +38,13 @@ class MemberTest {
         testMember.borrowBook("Dream Count");
         boolean result = testMember.getBorrowedBooks().contains("Dream Count");
         assertTrue(result);
+    }
+
+    @Test @Description("throw error if book title is null")
+    void throwErrorIfBookTitleIsNull() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            testMember.borrowBook(null);
+        });
     }
 
     @Test

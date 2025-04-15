@@ -36,6 +36,7 @@ public class Member {
     }
 
     public void borrowBook(String bookTitle) {
+        if (bookTitle == null) throw new IllegalArgumentException("Book title cannot be null");
         borrowedBooks.add(bookTitle);
     }
 
