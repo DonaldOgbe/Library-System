@@ -18,6 +18,7 @@ public class Book {
     }
 
     public void setNumberOfCopies(int num) {
+        if (num < 0) throw new IllegalArgumentException("Cant set number of books to a negative number");
         copies = num;
     }
 

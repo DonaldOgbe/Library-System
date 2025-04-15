@@ -1,5 +1,6 @@
 package org.deodev.LibrarySystem.model;
 
+import jdk.jfr.Description;
 import org.deodev.LibrarySystem.repository.Library;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -34,6 +35,13 @@ class BookTest {
         testBook.setNumberOfCopies(2);
         int result = testBook.getNumberOfCopies();
         assertEquals(2, result);
+    }
+
+    @Test @Description("throw error for setting number of copies to less than 0")
+    void throwError() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            testBook.setNumberOfCopies(-1);
+        });
     }
 
     static Stream<Arguments> getObjectForTesting() {
