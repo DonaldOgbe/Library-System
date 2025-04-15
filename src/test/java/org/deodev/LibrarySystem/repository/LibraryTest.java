@@ -4,7 +4,11 @@ import org.deodev.LibrarySystem.model.Book;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,7 +26,7 @@ class LibraryTest {
     @Test
     void getBook() {
         Book result = testLibrary.getBook("Dream Count");
-        assertTrue(result.equals(testBook));
+        assertEquals(result, testBook);
     }
 
     @ParameterizedTest
@@ -40,11 +44,48 @@ class LibraryTest {
     }
 
     @Test
+    void throwErrorForInvalidBook() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            testLibrary.addBook(null);
+        });
+    }
+
+    @Test
+    void throwErrorForExistingBook() {
+        assertThrows(RuntimeException.class, () -> {
+            testLibrary.addBook(new Book("Dream Count", 3));
+        });
+    }
+
+    @Test
     void removeBookFromCatalog() {
         testLibrary.removeBook(testBook.getBookTitle());
         boolean result = testLibrary.containsBook(testBook.getBookTitle());
         assertFalse(result);
     }
+
+    @Test
+    void throwErrorForNonExistentBook() {
+        assertThrows(RuntimeException.class, () -> {
+            testLibrary.validateIfBookExists("Heart Stone");
+        });
+    }
+
+    static Stream<Arguments> provideArgumentsForErrorTesting() {
+        return Stream.of(Arguments.of((Object) null),
+                Arguments.of(""));
+    }
+
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForErrorTesting")
+    void throwErrorForNullOrEmptyArgumentForContainsMethod(String id) {
+        assertThrows(IllegalArgumentException.class, () -> {
+            testLibrary.validateIfBookTitleIsNull(id);
+        });
+    }
+
+
 
 
 }
