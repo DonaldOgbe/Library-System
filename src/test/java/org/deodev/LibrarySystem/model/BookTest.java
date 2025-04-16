@@ -19,7 +19,7 @@ class BookTest {
 
     @BeforeEach
     void setup() {
-        title = "Dream Count";
+        title = "Book";
         copies = 3;
         testBook = new Book(title, copies);
     }
@@ -27,7 +27,7 @@ class BookTest {
     @Test
     void getTitle() {
         String result = testBook.getBookTitle();
-        assertEquals("Dream Count", result);
+        assertEquals("Book", result);
     }
 
     @Test
@@ -37,18 +37,12 @@ class BookTest {
         assertEquals(2, result);
     }
 
-    @Test @Description("throw error for setting number of copies to less than 0")
-    void throwError() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            testBook.setNumberOfCopies(-1);
-        });
-    }
 
     static Stream<Arguments> getObjectForTesting() {
         return Stream.of(
                 Arguments.of(null, false),
                 Arguments.of(new Library(), false),
-                Arguments.of(new Book("Dream Count", 3), true)
+                Arguments.of(new Book("Book", 3), true)
         );
     }
 

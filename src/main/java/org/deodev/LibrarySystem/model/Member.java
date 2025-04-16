@@ -1,6 +1,7 @@
 package org.deodev.LibrarySystem.model;
 
 import org.deodev.LibrarySystem.enums.Role;
+import org.deodev.LibrarySystem.validation.InputValidator;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class Member {
     private final ArrayList<String> borrowedBooks = new ArrayList<>();
 
     public Member(String name, Role role) {
+        InputValidator.validateNotNullOrBlank(name);
         this.name = name;
         id = idCount;
         idCount++;
@@ -36,7 +38,7 @@ public class Member {
     }
 
     public void borrowBook(String bookTitle) {
-        if (bookTitle == null) throw new IllegalArgumentException("Book title cannot be null");
+        InputValidator.validateNotNullOrBlank(bookTitle);
         borrowedBooks.add(bookTitle);
     }
 

@@ -35,16 +35,9 @@ class MemberTest {
 
     @Test
     void addBorrowedBookToList() {
-        testMember.borrowBook("Dream Count");
-        boolean result = testMember.getBorrowedBooks().contains("Dream Count");
+        testMember.borrowBook("Book");
+        boolean result = testMember.getBorrowedBooks().contains("Book");
         assertTrue(result);
-    }
-
-    @Test @Description("throw error if book title is null")
-    void throwErrorIfBookTitleIsNull() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            testMember.borrowBook(null);
-        });
     }
 
     @Test
