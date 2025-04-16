@@ -1,10 +1,15 @@
 package org.deodev.LibrarySystem.model;
 
+import org.deodev.LibrarySystem.exception.InvalidInputException;
+import org.deodev.LibrarySystem.validation.InputValidator;
+
 public class Book {
     private String title;
     private int copies;
 
     public Book(String title, int copies) {
+        InputValidator.validateNotNullOrBlank(title);
+        InputValidator.validateNonNegative(copies);
         this.title = title;
         this.copies = copies;
     }
@@ -18,7 +23,7 @@ public class Book {
     }
 
     public void setNumberOfCopies(int num) {
-        if (num < 0) throw new IllegalArgumentException("Cant set number of books to a negative number");
+        InputValidator.validateNonNegative(num);
         copies = num;
     }
 
