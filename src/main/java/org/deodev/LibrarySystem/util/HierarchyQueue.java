@@ -1,9 +1,9 @@
 package org.deodev.LibrarySystem.util;
 
 import org.deodev.LibrarySystem.model.Member;
-
+import org.deodev.LibrarySystem.validation.CollectionValidator;
+import org.deodev.LibrarySystem.validation.InputValidator;
 import java.util.Comparator;
-import java.util.PriorityQueue;
 
 public class HierarchyQueue extends BaseQueue {
 
@@ -15,16 +15,19 @@ public class HierarchyQueue extends BaseQueue {
 
     @Override
     public void addToQueue(Member member) {
+        InputValidator.validateNotNull(member);
         priorityQueue.add(member);
     }
 
     @Override
     public Member peekNext() {
+        CollectionValidator.validateQueueNotEmpty(priorityQueue);
         return priorityQueue.peek();
     }
 
     @Override
     public Member getHighestInQueue() {
+        CollectionValidator.validateQueueNotEmpty(priorityQueue);
         return priorityQueue.poll();
     }
 

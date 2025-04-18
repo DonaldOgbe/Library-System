@@ -4,19 +4,27 @@ import org.deodev.LibrarySystem.model.Book;
 import org.deodev.LibrarySystem.repository.Library;
 import org.deodev.LibrarySystem.model.Member;
 import org.deodev.LibrarySystem.util.BaseQueue;
+import org.deodev.LibrarySystem.validation.InputValidator;
 
 public class Librarian {
 
     public void addBook(Book book, Library library) {
+        InputValidator.validateNotNull(book);
+        InputValidator.validateNotNull(library);
         library.addBook(book);
     }
 
     public void addRequestToQueue(BaseQueue queue, Member member) {
+        InputValidator.validateNotNull(queue);
+        InputValidator.validateNotNull(member);
         member.setLastBookRequestTime();
         queue.addToQueue(member);
     }
 
     public void processQueue(BaseQueue queue, Library library, String bookTitle) {
+        InputValidator.validateNotNull(queue);
+        InputValidator.validateNotNull(library);
+        InputValidator.validateNotNullOrBlank(bookTitle);
 
         int numberOfCopies = library.getBook(bookTitle).getNumberOfCopies();
         int lengthOfQueue = queue.size();

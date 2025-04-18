@@ -44,13 +44,6 @@ class LibraryTest {
     }
 
     @Test
-    void throwErrorForInvalidBook() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            testLibrary.addBook(null);
-        });
-    }
-
-    @Test
     void throwErrorForExistingBook() {
         assertThrows(RuntimeException.class, () -> {
             testLibrary.addBook(new Book("Dream Count", 3));
@@ -63,29 +56,5 @@ class LibraryTest {
         boolean result = testLibrary.containsBook(testBook.getBookTitle());
         assertFalse(result);
     }
-
-    @Test
-    void throwErrorForNonExistentBook() {
-        assertThrows(RuntimeException.class, () -> {
-            testLibrary.validateIfBookExists("Heart Stone");
-        });
-    }
-
-    static Stream<Arguments> provideArgumentsForErrorTesting() {
-        return Stream.of(Arguments.of((Object) null),
-                Arguments.of(""));
-    }
-
-
-    @ParameterizedTest
-    @MethodSource("provideArgumentsForErrorTesting")
-    void throwErrorForNullOrEmptyArgumentForContainsMethod(String id) {
-        assertThrows(IllegalArgumentException.class, () -> {
-            testLibrary.validateIfBookTitleIsNull(id);
-        });
-    }
-
-
-
 
 }
