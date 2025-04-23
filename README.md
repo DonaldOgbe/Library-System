@@ -2,6 +2,11 @@
 
 A Java-based book library system where members (teachers and students) can borrow books. The borrowing follows defined rules of priority and availability. This project demonstrates the use of OOP principles.
 
+## 📅 Decagon curriculum
+
+- ✅ Decagon curriculum Week 3 Complete: Core collection and sorting/searching logic implemented
+- ✅ Decagon curriculum Week 4 Complete: Functional refactor, stream usage, and exception handling
+
 ## 🛠️ Features
 - Add books to a library
 - Prioritized borrowing based on member roles
@@ -84,11 +89,5 @@ To run tests, use the IDE test runner or mvn test
 ```
 - Unit tests are located in the `src/test` directory
 - Test classes cover model logic, queue processing, and exception handling
-
-## 📅 Decagon curriculum
-
-- ✅ Decagon curriculum Week 3 Complete: Core collection and sorting/searching logic implemented
-- ✅ Decagon curriculum Week 4 Complete: Functional refactor, stream usage, and exception handling
-
 ---
 
